@@ -1,0 +1,67 @@
+@page
+@model finalproject3312.Pages_Players.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player[0].Favorite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player[0].KillCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player[0].RunDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player[0].PlayerCharacters)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Player) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Favorite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KillCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RunDate)
+            </td>
+            <td>
+                @foreach (var character in item.PlayerCharacters!)
+                {
+                    @character.Character.Name<br/>
+                }
+                @if (item.PlayerCharacters.Count == 0)
+                {
+                    @:No Runs Recorded
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PlayerID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PlayerID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PlayerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
