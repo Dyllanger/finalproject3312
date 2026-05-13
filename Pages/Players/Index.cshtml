@@ -10,20 +10,54 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<div class="row">
+    <form class="d-flex" role="search" asp-page="./Index" method="get">
+        <div class="col-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input class="form-control me-2" type="search" name="CurrentSearch" value="@Model.CurrentSearch" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Player[0].Username)
+                @{
+                    var firstSort = "first_asc";
+                    if (Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort" asp-route-PageNum="@Model.PageNum">@Html.DisplayNameFor(model=>model.Player[0].Username)</a>
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Player[0].Favorite)
+            </th>*@
+            <th>
+                @{
+                    var killcountSort = "killcount_asc";
+                    if(Model.CurrentSort=="killcount_asc")
+                    {
+                        killcountSort = "killcount_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@killcountSort" asp-route-PageNum="@Model.PageNum">@Html.DisplayNameFor(model => model.Player[0].KillCount)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Player[0].KillCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].RunDate)
+                @{
+                    var dateSort = "date_asc";
+                    if(Model.CurrentSort=="date_asc")
+                    {
+                        dateSort = "date_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@dateSort" asp-route-PageNum="@Model.PageNum">@Html.DisplayNameFor(model => model.Player[0].RunDate)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Player[0].PlayerCharacters)
@@ -37,9 +71,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Favorite)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.KillCount)
             </td>
@@ -65,3 +99,23 @@
 }
     </tbody>
 </table>
+
+<hr />
+@{
+    var prevDisabled = "";
+    var nextDisabled = "";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+    if (Model.PageNum >= Model.TotalPages)
+    {
+        nextDisabled = "disabled";
+    }
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-CurrentSort="@Model.CurrentSort" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-CurrentSort="@Model.CurrentSort" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+</nav>

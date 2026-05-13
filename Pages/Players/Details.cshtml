@@ -17,12 +17,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Player.Username)
         </dd>
-        <dt class="col-sm-2">
+        @*<dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Player.Favorite)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Player.Favorite)
-        </dd>
+        </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Player.KillCount)
         </dt>
@@ -43,8 +43,8 @@
             {
                 <form method="post">
                     <input type="hidden" asp-for="CharacterIDToDelete" value="@character.Character.CharacterID"/>
-                        @Html.DisplayFor(model=>character.Character.Description)<br>
-                    <button type="submit" class="btn btn-danger btn-sm my-1" asp-page-handler="DropCharacter" asp-route-id="@Model.Player.PlayerID">Drop Character</button>
+                        @Html.DisplayFor(model=>character.Character.Name)<br>
+                    <button type="submit" class="btn btn-danger btn-sm my-1" asp-page-handler="DeleteCharacter" asp-route-id="@Model.Player.PlayerID">Delete Character</button>
                     <br>
                 </form>
             }

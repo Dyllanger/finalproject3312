@@ -93,7 +93,7 @@ namespace finalproject3312.Pages_Players
 
         public IActionResult OnPostDeleteCharacter(int? id)
         {
-            _logger.LogWarning($"Drop Character: PlayerID {id}, DROP character {CharacterIDToDelete}");
+            _logger.LogWarning($"Delete Character: PlayerID {id}, DROP character {CharacterIDToDelete}");
 
             if(id == null)
             {

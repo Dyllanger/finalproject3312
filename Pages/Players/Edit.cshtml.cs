@@ -50,7 +50,7 @@ namespace finalproject3312.Pages_Players
                 return Page();
             }
 
-            var playerToUpdate = await _context.Players.Include(p=>p.PlayerCharacters!).ThenInclude(pc=>pc.Character).FirstOrDefaultAsync(m => m.PlayerID == id);
+            var playerToUpdate = await _context.Players.Include(p=>p.PlayerCharacters!).ThenInclude(pc=>pc.Character).FirstOrDefaultAsync(m => m.PlayerID == Player.PlayerID);
             if(playerToUpdate != null)
             {
                 playerToUpdate.Username = Player.Username;
@@ -95,9 +95,9 @@ namespace finalproject3312.Pages_Players
 
             foreach(var character in _context.Characters)
             {
-                if(selectedCharactersList.Contains(character.CharacterID))
+                if (selectedCharactersList.Contains(character.CharacterID))
                 {
-                    if(!currentCharacters.Contains(character.CharacterID))
+                    if (!currentCharacters.Contains(character.CharacterID))
                     {
                         playerToUpdate.PlayerCharacters!.Add(
                             new PlayerCharacter {PlayerID = playerToUpdate.PlayerID, CharacterID = character.CharacterID}
