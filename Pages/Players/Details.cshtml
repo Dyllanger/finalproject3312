@@ -43,8 +43,8 @@
             {
                 <form method="post">
                     <input type="hidden" asp-for="CharacterIDToDelete" value="@character.Character.CharacterID"/>
-                        @Html.DisplayFor(model=>character.Character.Name)<br>
-                    <button type="submit" class="btn btn-danger btn-sm my-1" asp-page-handler="DeleteCharacter" asp-route-id="@Model.Player.PlayerID">Delete Character</button>
+                        @Html.DisplayFor(model=>character.Character.Description)
+                    <button type="submit" class="btn btn-danger btn-sm my-1" asp-page-handler="DropCharacter" asp-route-id="@Model.Player.PlayerID">Delete Character</button>
                     <br>
                 </form>
             }
@@ -71,7 +71,7 @@
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Player.PlayerID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Back to Dashboard</a>
 </div>
 
 @section Scripts {

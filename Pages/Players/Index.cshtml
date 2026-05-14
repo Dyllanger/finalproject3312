@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Critical Core Record Tracker</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Record Your Run</a>
 </p>
 
 <div class="row">
@@ -16,7 +16,7 @@
         <div class="col-3">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input class="form-control me-2" type="search" name="CurrentSearch" value="@Model.CurrentSearch" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" name="CurrentSearch" value="@Model.CurrentSearch" placeholder="Find A Record..." aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </div>
@@ -87,7 +87,7 @@
                 }
                 @if (item.PlayerCharacters.Count == 0)
                 {
-                    @:No Runs Recorded
+                    @:No Character Recorded
                 }
             </td>
             <td>

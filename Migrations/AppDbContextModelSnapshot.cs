@@ -42,10 +42,6 @@ namespace finalproject3312.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Favorite")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("KillCount")
                         .HasColumnType("INTEGER");
 

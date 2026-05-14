@@ -11,7 +11,7 @@ using finalproject3312.Models;
 namespace finalproject3312.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260513011344_InitialCreate")]
+    [Migration("20260513235258_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -44,10 +44,6 @@ namespace finalproject3312.Migrations
                     b.Property<int>("PlayerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Favorite")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("KillCount")
                         .HasColumnType("INTEGER");

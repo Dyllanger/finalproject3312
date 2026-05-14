@@ -42,13 +42,16 @@ namespace finalproject3312.Pages_Players
 
             var player = await _context.Players.Include(p=>p.PlayerCharacters!).ThenInclude(pc=>pc.Character).FirstOrDefaultAsync(m => m.PlayerID == id);
 
-            if (player is not null)
+            if (player == null)
+            {
+                return NotFound();
+            }
+            else
             {
                 Player = player;
-                CharactersDropDown = new SelectList(_context.Characters.ToList(),"CharacterID","Description");
-                return Page();
             }
-            return NotFound();
+            CharactersDropDown = new SelectList(_context.Characters.ToList(),"CharacterID","Description");
+            return Page();
         }
 
         public IActionResult OnPostAddCharacter(int? id)
@@ -91,9 +94,9 @@ namespace finalproject3312.Pages_Players
             return Page();
         }
 
-        public IActionResult OnPostDeleteCharacter(int? id)
+        public IActionResult OnPostDropCharacter(int? id)
         {
-            _logger.LogWarning($"Delete Character: PlayerID {id}, DROP character {CharacterIDToDelete}");
+            _logger.LogWarning($"Drop Character: PlayerID {id}, DROP character {CharacterIDToDelete}");
 
             if(id == null)
             {

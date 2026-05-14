@@ -32,7 +32,6 @@ namespace finalproject3312.Migrations
                     PlayerID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(type: "TEXT", nullable: false),
-                    Favorite = table.Column<string>(type: "TEXT", nullable: false),
                     KillCount = table.Column<int>(type: "INTEGER", nullable: false),
                     RunDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
