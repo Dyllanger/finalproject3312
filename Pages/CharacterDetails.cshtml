@@ -1,0 +1,60 @@
+@page
+@model CharacterDetailsModel
+@{
+    ViewData["Title"] = "Character Details";
+}
+
+<div id="carousel" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/Beatrix.png" class="d-block w-100" alt="Beatrix">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-start">Beatrix</h5>
+                <p class="text-decoration-underline text-start">Beatrix is a samurai who wields two katanas, and rides on a black skateboard.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/Margot.png" class="d-block w-100" alt="Margot">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-start">Margot</h5>
+                <p class="text-decoration-underline text-start">Margot is a gardener who fights with shears and her walking cane, Margot is very short and wears black sneakers.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/Phil.png" class="d-block w-100" alt="Phil">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-start">Phil</h5>
+                <p class="text-decoration-underline text-start">Phil is a mechanic who maintains turrets and wears a gray bandana.</p>
+            </div>
+        </div>
+	    <div class="carousel-item">
+            <img src="img/Robin.png" class="d-block w-100" alt="Robin">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-start">Robin</h5>
+                <p class="text-decoration-underline text-start">Robin is a paleontologist who harnesses the power of the sun with her magnifying glass, Robin wears a white lab coat.</p>
+            </div>
+        </div>
+	    <div class="carousel-item">
+            <img src="img/Ted.png" class="d-block w-100" alt="Ted">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-start">Ted</h5>
+                <p class="text-decoration-underline text-start">Ted is the most ordinary man alive, Ted wears jeans and a blue t-shirt, Ted's weapon of choice is the Glock 19.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
