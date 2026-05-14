@@ -55,8 +55,11 @@ namespace finalproject3312.Pages_Players
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int[] selectedCharacters)
         {
+            Characters = _context.Characters.ToList();
+            ModelState.Remove("Player.PlayerCharacters");
             if (!ModelState.IsValid)
             {
+                Player.PlayerCharacters = selectedCharacters.Select(id => new PlayerCharacter {CharacterID = id}).ToList();
                 return Page();
             }
 
@@ -64,6 +67,8 @@ namespace finalproject3312.Pages_Players
             if(playerToUpdate != null)
             {
                 playerToUpdate.Username = Player.Username;
+                playerToUpdate.RunDate = Player.RunDate;
+                playerToUpdate.KillCount = Player.KillCount;
                 UpdatePlayerCharacters(selectedCharacters, playerToUpdate);
             }
             //_context.Attach(Player).State = EntityState.Modified;

@@ -115,7 +115,7 @@ namespace finalproject3312.Pages_Players
             }
             CharactersDropDown = new SelectList(_context.Characters.ToList(),"CharacterID","Description");
 
-            var characterToDrop = _context.PlayerCharacters.Find(CharacterIDToDelete, id);
+            var characterToDrop = _context.PlayerCharacters.Find(id, CharacterIDToDelete);
 
             if(characterToDrop != null)
             {
