@@ -7,7 +7,7 @@ public class Character
     public int CharacterID {get;set;} //pk
     public string Name {get;set;} = string.Empty;
     public string Description {get;set;} = string.Empty;
-    public List<PlayerCharacter>? PlayerCharacters {get;set;} = default!; //nav
+    public List<PlayerCharacter> PlayerCharacters {get;set;} = default!; //nav
 }
 
 public class PlayerCharacter

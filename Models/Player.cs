@@ -15,5 +15,5 @@ public class Player
     [DataType(DataType.Date)]
     public DateTime RunDate {get;set;}
     [Display(Name="Characters Used In Run")]
-    public List<PlayerCharacter> PlayerCharacters {get;set;} = default!;
+    public List<PlayerCharacter> PlayerCharacters {get;set;} = new List<PlayerCharacter>();
 }

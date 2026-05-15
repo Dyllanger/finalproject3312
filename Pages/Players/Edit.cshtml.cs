@@ -99,11 +99,11 @@ namespace finalproject3312.Pages_Players
 
         private void UpdatePlayerCharacters(int[] selectedCharacters, Player playerToUpdate)
         {
-            if(selectedCharacters == null)
+            /*if(selectedCharacters == null)
             {
                 playerToUpdate.PlayerCharacters = new List<PlayerCharacter>();
                 return;
-            }
+            }*/
 
             List<int> currentCharacters = playerToUpdate.PlayerCharacters!.Select(c=>c.CharacterID).ToList();
             List<int> selectedCharactersList = selectedCharacters.ToList();
